@@ -1,0 +1,28 @@
+name: Docker Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: codilitymohsin
+        password: dckr_pat_tHwb0BWbIqDz5i6K7ScoihD-Ylc
+
+    - name: Build and push
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        tags: codilitymohsin/crewai:latest
+        build-args: |
+          SHOPIFY_API_KEY=4a38db505cc00f1a5af98493b44509a6
