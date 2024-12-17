@@ -1,0 +1,6 @@
+crewai
+openai
+serpapi
+requests
+tiktoken
+python-dotenv
